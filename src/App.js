@@ -53,8 +53,9 @@ class App extends Component {
 
 
     const charNames = this.state.charNames;
-    console.log(charNames);
-    return (
+    const loading = this.state.loading;
+
+    return (!loading) ?
       <div>
         <form>
           <input type="text"
@@ -62,14 +63,14 @@ class App extends Component {
            />
         </form>
 
-
         <ul>
           {charNames.filter(searchingFor2(this.state.term)).map(function(char, i){
             return <li key={i}>{char}</li>;
           })}
         </ul>
-      </div>
-    );
+      </div> :
+      <div>Loading...</div>;
+
   }
 }
 export default App;
