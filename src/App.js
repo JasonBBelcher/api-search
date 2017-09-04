@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import fetch from 'isomorphic-fetch';
 import SearchBar from './components/SearchBar.js';
 import TableList from './components/TableList.js';
 import gridtable from './App.css';
