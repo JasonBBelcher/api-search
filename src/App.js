@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from './components/SearchBar.js';
 import fetch from 'isomorphic-fetch';
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
   }
 
   searchHandler(event) {
-    this.setState({term: event.target.value});
+    this.setState({term: event});
   }
 
   componentDidMount(){
@@ -57,12 +58,8 @@ class App extends Component {
 
     return (!loading) ?
       <div>
-        <form>
-          <input type="text"
-            onChange={this.searchHandler}
-           />
-        </form>
 
+        <SearchBar onSearch={this.searchHandler}/>
         <ul>
           {charNames.filter(searchingFor2(this.state.term)).map(function(char, i){
             return <li key={i}>{char}</li>;
