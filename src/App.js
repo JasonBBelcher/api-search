@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import SearchBar from './components/SearchBar.js';
 import fetch from 'isomorphic-fetch';
+import SearchBar from './components/SearchBar.js';
+import List from './components/List.js';
 
 class App extends Component {
   constructor(props) {
@@ -39,19 +40,6 @@ class App extends Component {
 
   render() {
 
-    // search version 1
-    function searchingFor(term){
-      return function(char){
-        return char.toLowerCase().includes(term.toLowerCase()) || !term;
-      };
-    }
-    // search version 2
-    function searchingFor2(term){
-      return function(char){
-        return char.toLowerCase().indexOf(term.toLowerCase()) > -1;
-      };
-    }
-
 
     const charNames = this.state.charNames;
     const loading = this.state.loading;
@@ -60,11 +48,7 @@ class App extends Component {
       <div>
 
         <SearchBar onSearch={this.searchHandler}/>
-        <ul>
-          {charNames.filter(searchingFor2(this.state.term)).map(function(char, i){
-            return <li key={i}>{char}</li>;
-          })}
-        </ul>
+        <List characters={charNames} searchTerms={this.state.term}/>
       </div> :
       <div>Loading...</div>;
 
