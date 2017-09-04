@@ -1,24 +1,41 @@
-.App {
-  text-align: center;
+
+table.gridtable {
+  margin: 0 auto;
+  width: 80%;
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.search-bar {
   height: 80px;
+  background-color: #66666a;
+}
+.search-bar h2 {
+  text-align: center;
+  color: #ddd;
+  font-family: verdana,arial,sans-serif;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+.search-bar form input {
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  width: 20%;
+  margin: 5px 40%;
 }

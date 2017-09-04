@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import fetch from 'isomorphic-fetch';
 import SearchBar from './components/SearchBar.js';
-import List from './components/List.js';
+import TableList from './components/TableList.js';
+import gridtable from './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      charNames: [],
+      characters: [],
       loading: false,
       term: ''
     };
@@ -28,10 +29,10 @@ class App extends Component {
       return response.json();
     })
     .then(json => json.results.map((char) => {
-      return char.name;
+      return char;
     }))
-    .then((charNames) => {
-      return this.setState({charNames, loading: false});
+    .then((char) => {
+      return this.setState({characters: char, loading: false});
     });
   }
 
@@ -41,14 +42,14 @@ class App extends Component {
   render() {
 
 
-    const charNames = this.state.charNames;
+    const characters = this.state.characters;
     const loading = this.state.loading;
 
     return (!loading) ?
       <div>
 
         <SearchBar onSearch={this.searchHandler}/>
-        <List characters={charNames} searchTerms={this.state.term}/>
+        <TableList characters={characters} searchTerms={this.state.term}/>
       </div> :
       <div>Loading...</div>;
 

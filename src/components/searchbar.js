@@ -11,11 +11,15 @@ const search = e => {
 };
 
   return (
-    <form>
-      <input onChange={search} type="text"
-        ref={input => _term = input}
-       />
-    </form>
+    <div className="search-bar">
+      <h2>Search Star Wars Characters</h2>
+
+      <form>
+        <input onChange={search} type="text"
+          ref={input => _term = input}
+        />
+      </form>
+    </div>
   );
 
 };
