@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar.js';
 import TableList from './components/TableList.js';
-import gridtable from './App.css';
+import css from './App.css';
 
 class App extends Component {
   constructor(props) {
